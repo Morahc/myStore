@@ -1,0 +1,35 @@
+.product-item {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  width: 25rem;
+}
+.product-item a {
+  width: 100%;
+}
+.product-info {
+  padding: 0.6rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.product-item img {
+  height: 20rem;
+  width: 100%;
+}
+.btn-primary {
+  background-color: #2a68e6;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+}
+.btn-primary:hover {
+  background-color: #134fc6;
+  cursor: pointer;
+}

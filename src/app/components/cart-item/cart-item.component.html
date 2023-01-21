@@ -1,0 +1,6 @@
+<div class="cart-item">
+  <a routerLink="/product/{{id}}">{{ name }}</a>
+  <span>${{ price }}</span>
+  <span>{{ quantity }}</span>
+  <span (click)="remove(id)" style="cursor: pointer;">X</span>
+</div>

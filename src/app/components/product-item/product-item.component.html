@@ -1,0 +1,18 @@
+<div class="product-item">
+  <a routerLink="/product/{{id}}">
+    <img src="{{ url }}" />
+  </a>
+  <div class="product-info">
+    <p>{{ name }}</p>
+    <p>${{ price }}</p>
+    <div>
+      <button
+        class="btn-primary"
+        [disabled]="quantity === 0"
+        (click)="addToCart({ id, name, price })"
+      >
+        {{quantity !== 0 ? 'Add to cart' : 'Out of stock'}}
+      </button>
+    </div>
+  </div>
+</div>

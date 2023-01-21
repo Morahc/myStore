@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="empty-cart" *ngIf="cartData.products.length === 0">
+    <h2>Your cart is empty</h2>
+    <a routerLink="/">Go to products</a>
+  </div>
+  <div class="cart-container" *ngIf="cartData.products.length > 0">
+    <div class="cart">
+      <div class="cart-header">
+        <h2>Cart items</h2>
+        <button (click)="clearCart()">Clear cart</button>
+      </div>
+      <div class="item-wrapper">
+        <div class="cart-list-header">
+          <th>Name</th>
+          <th>price</th>
+          <th>Quantity</th>
+          <th></th>
+        </div>
+        <app-cart-item
+          *ngFor="let cart of cartData.products"
+          [id]="cart.id"
+          [name]="cart.name"
+          [price]="cart.price"
+          [quantity]="cart.quantity"
+          (removeItem)="removeItem($event)"
+        ></app-cart-item>
+      </div>
+      <h3 class="total">Total: {{total}}</h3>
+    </div>
+    <form class="checkout" (ngSubmit)="checkout()" #form="ngForm">
+      <h2>Checkout form</h2>
+      <div class="form-input">
+        <label for="name">Fullname</label>
+        <input type="text" name="name" required minlength="16" [(ngModel)]="fullname" placeholder="Minimum of 16 characters"/>
+      </div>
+      <div class="form-input">
+        <label for="address">Address</label>
+        <input type="text" name="address" required minlength="16" [(ngModel)]="address" placeholder="Minimum of 16 characters"/>
+      </div>
+      <div class="form-input">
+        <label for="card">Credit cart</label>
+        <input type="text" name="card" required minlength="13" [(ngModel)]="cardNumber" placeholder="Minimum of 13 characters"/>
+      </div>
+      <button type="submit" [disabled]="form.invalid" (click)="checkout()">Checkout</button>
+    </form>
+  </div>
+</div>
