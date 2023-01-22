@@ -52,7 +52,11 @@ export class ProductDetailComponent {
   addToCart(): void {
     const { name, id, price } = this.product;
     const quantity = this.quantity;
-    this.cartService.addProduct( id, name, price, quantity);
+    this.cartService.addProduct(id, name, price, quantity);
     alert('Added to cart');
+  }
+
+  changeQuantity(quantity: number) {
+    this.quantity = quantity;
   }
 }

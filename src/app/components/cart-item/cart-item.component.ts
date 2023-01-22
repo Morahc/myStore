@@ -15,5 +15,6 @@ export class CartItemComponent {
 
   remove(id: number) {
     this.removeItem.emit(id);
+    alert(`${this.name} has been removed from cart`);
   }
 }

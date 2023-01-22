@@ -2,6 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
 
+## Description
+
+myStore is a singular-page e-commerce web application.
+
+### Actions
+
+- Shows all products
+- Shows a particular product
+- Add product to cart
+- Remove item from cart
+- Clear cart items
+- Checkout cart
+
 ## Install Dependencies
 
 Run `npm install` to install app dependencies

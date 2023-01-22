@@ -16,6 +16,16 @@ export class CartComponent {
 
   cartData = this.cartService.getCart();
 
+  setFullname(input: string) {
+    this.fullname = input;
+  }
+  setAddress(input: string) {
+    this.address = input;
+  }
+  setCard(input: string) {
+    this.cardNumber = input;
+  }
+
   clearCart(): void {
     this.cartService.clearCart();
     this.cartData = this.cartService.getCart()

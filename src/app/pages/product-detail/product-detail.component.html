@@ -25,7 +25,9 @@
           <button [disabled]="product.quantity === 0" (click)="addToCart()">
             {{ product.quantity !== 0 ? "Add to cart" : "Out of stock" }}
           </button>
-          <select [(ngModel)]="quantity">
+          <select
+          ngModel
+          (ngModelChange)="changeQuantity($event)">
             <option
             
               *ngFor="let num of getProductCount(product.quantity)"

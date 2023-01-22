@@ -25,23 +25,62 @@
           (removeItem)="removeItem($event)"
         ></app-cart-item>
       </div>
-      <h3 class="total">Total: {{total}}</h3>
+      <h3 class="total">Total: {{ total }}</h3>
     </div>
     <form class="checkout" (ngSubmit)="checkout()" #form="ngForm">
       <h2>Checkout form</h2>
       <div class="form-input">
         <label for="name">Fullname</label>
-        <input type="text" name="name" required minlength="16" [(ngModel)]="fullname" placeholder="Minimum of 16 characters"/>
+        <input
+          type="text"
+          name="fullname"
+          required
+          ngModel
+          (ngModelChange)="setFullname($event)"
+          placeholder="John Doe"
+          #name="ngModel"
+        />
+        <div *ngIf="name.invalid && (name.dirty || name.touched)">
+          <small>Fullname is required.</small>
+        </div>
+        
       </div>
       <div class="form-input">
         <label for="address">Address</label>
-        <input type="text" name="address" required minlength="16" [(ngModel)]="address" placeholder="Minimum of 16 characters"/>
+        <input
+          name="address"
+          type="text"
+          required
+          minlength="16"
+          ngModel
+          (ngModelChange)="setAddress($event)"
+          placeholder="Minimum of 16 characters"
+          #address="ngModel"
+        />
+        <div *ngIf="address.invalid && (address.dirty || address.touched)">
+          <small>Address is required. Must be a minimum of 16 characters</small>
+        </div>
+        
       </div>
       <div class="form-input">
         <label for="card">Credit cart</label>
-        <input type="text" name="card" required minlength="13" [(ngModel)]="cardNumber" placeholder="Minimum of 13 characters"/>
+        <input
+          type="text"
+          name="card"
+          required
+          minlength="13"
+          ngModel
+          (ngModelChange)="setCard($event)"
+          placeholder="Minimum of 13 characters"
+          #card="ngModel"
+        />
+        <div *ngIf="card.invalid && (card.dirty || card.touched)">
+          <small>Credit card number is required. Must be a minimum of 13</small>
+        </div>
       </div>
-      <button type="submit" [disabled]="form.invalid" (click)="checkout()">Checkout</button>
+      <button type="submit" [disabled]="form.invalid" (click)="checkout()">
+        Checkout
+      </button>
     </form>
   </div>
 </div>
