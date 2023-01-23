@@ -11,7 +11,7 @@ export class CartComponent {
   constructor(private cartService: CartService, private router:Router) {}
   fullname = ''
   address = ''
-  cardNumber = ''
+  cardNumber = 0
   total = this.cartService.getCartTotal()
 
   cartData = this.cartService.getCart();
@@ -22,7 +22,7 @@ export class CartComponent {
   setAddress(input: string) {
     this.address = input;
   }
-  setCard(input: string) {
+  setCard(input: number) {
     this.cardNumber = input;
   }
 

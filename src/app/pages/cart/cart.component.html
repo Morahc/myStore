@@ -65,17 +65,18 @@
       <div class="form-input">
         <label for="card">Credit cart</label>
         <input
-          type="text"
+          type="number"
           name="card"
           required
-          minlength="13"
+          min="1000000000000"
+          max="9999999999999999"
           ngModel
           (ngModelChange)="setCard($event)"
           placeholder="Minimum of 13 characters"
           #card="ngModel"
         />
         <div *ngIf="card.invalid && (card.dirty || card.touched)">
-          <small>Credit card number is required. Must be a minimum of 13</small>
+          <small>Credit card number is required. Must be a minimum of 13 characters</small>
         </div>
       </div>
       <button type="submit" [disabled]="form.invalid" (click)="checkout()">
